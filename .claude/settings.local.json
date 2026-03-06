@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__screenshot-server__take_system_screenshot",
+      "Read(//c/Users/panca/AppData/Roaming/npm/node_modules/universal-screenshot-mcp/**)",
+      "Bash(node:*)",
+      "WebFetch(domain:help.autodesk.com)",
+      "Bash(curl:*)"
+    ]
+  }
+}
