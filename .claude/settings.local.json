@@ -14,7 +14,8 @@
       "WebFetch(domain:assets.nexperia.com)",
       "Bash(test:*)",
       "Bash(rm:*)",
-      "Bash(pip:*)"
+      "Bash(pip:*)",
+      "Bash(gh repo:*)"
     ]
   }
 }
