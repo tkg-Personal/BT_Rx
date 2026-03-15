@@ -15,7 +15,8 @@
       "Bash(test:*)",
       "Bash(rm:*)",
       "Bash(pip:*)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(grep:*)"
     ]
   }
 }
