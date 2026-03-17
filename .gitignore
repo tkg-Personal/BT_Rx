@@ -1,0 +1,4 @@
+# 著作権のある第三者コンテンツ（公開リポジトリ用）
+docs/datasheets/
+docs/fusion_electronics/
+external/*.lbr
