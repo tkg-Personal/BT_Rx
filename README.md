@@ -27,23 +27,29 @@ Bluetoothで音楽を受信し、3.5mmステレオジャックから出力する
 
 ```
 BT_Rx/
-├── README.md                 ← 本ファイル
-├── BT_Rx_仕様書.md           ← 回路仕様・BOM・PCB設計方針
-├── 実装方法.md               ← PCB設計〜実装〜テスト手順
+├── README.md                          ← 本ファイル
+├── BT_Rx_仕様書.md                    ← 回路仕様・BOM・PCB設計方針 (v5)
+├── 実装方法.md                        ← 実装〜テスト手順 (PCBA対応)
+├── 日記.md                            ← 設計日記・作業ログ
+├── BT_Rx_BOM.csv                      ← JLCPCB PCBA用 BOM (LCSC品番付き)
+├── BT_Rx_CPL.csv                      ← JLCPCB PCBA用 部品配置リスト
+├── 20260306_v38_2026-03-17.zip        ← ガーバーファイル
+├── external/                          ← カスタムライブラリ (.lbr)
+│   ├── BM83SM1-00AA.lbr
+│   ├── EEUFC1V101.lbr
+│   └── PESD5V0S1BA.lbr
 ├── docs/
-│   ├── datasheets/           ← 全部品データシート (PDF)
+│   ├── datasheets/                    ← 部品データシート (PDF)
 │   │   ├── BM83_datasheet.pdf
 │   │   ├── BM83_EVB_user_guide.pdf
 │   │   ├── BM83_reference_circuit.pdf
 │   │   ├── PESD5V0S1BA_datasheet.pdf
-│   │   ├── TYPE-C-31-M-12_datasheet.pdf
-│   │   ├── PJ-320A_datasheet.pdf
-│   │   ├── JST_PH_series_datasheet.pdf
-│   │   └── B3FS_tactile_switch_datasheet.pdf
-│   └── fusion_electronics/   ← Fusion Electronics オフラインヘルプ (578ページ)
+│   │   ├── B3U_tactile_switch_datasheet.pdf
+│   │   └── JST_PH_series_datasheet.pdf
+│   └── fusion_electronics/            ← Fusion Electronics オフラインヘルプ
 │       ├── INDEX.md
 │       └── pages/
-└── docs/fetch_docs.js        ← ヘルプドキュメント取得スクリプト
+└── pics/                              ← 画像
 ```
 
 ## 必要な環境

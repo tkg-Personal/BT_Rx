@@ -1,4 +1,4 @@
-# BT Audio Rx — Bluetooth オーディオレシーバー PCB 仕様書 v4
+# BT Audio Rx — Bluetooth オーディオレシーバー PCB 仕様書 v5
 
 ## 概要
 
@@ -67,44 +67,44 @@ USB-C (5V) ─── R1,R2(CC) ──→ BM83:ADAP_IN (pin 22)
 
 | Ref | 部品名 | パッケージ | 説明 |
 |-----|--------|-----------|------|
-| J1 | **USB Type-C** (TYPE-C-31-M-12 等) | SMD 16pin | 5V電源入力 (充電用)。データ線不使用 |
-| J2 | **PJ-320A** 系 | スルーホール | 3.5mm TRS ステレオジャック |
-| J3 | **S2B-PH-SM4-TB(LF)(SN)** | SMD | JST PH 2pin バッテリーコネクタ (2.0mmピッチ) |
-| J4 | **ピンヘッダ 1×6** | 2.54mm スルーホール | UART + デバッグ用 (TXD/RXD/GND/BAT_IN/P3_4/RST_N) |
-| SW1 | **タクトスイッチ** (SPST, SMD) | 各種 | MFBボタン (電源ON/OFF + ペアリング) |
+| J1 | **12401610E4#2A** (Amphenol USB-C) | SMD 24pin | 5V電源入力 (充電用)。データ線不使用。LCSC: C5119948 |
+| J2 | **35RASMT4BHNTRX** | SMD | 3.5mm TRS ステレオジャック |
+| J3 (JP1) | **S2B-PH-SM4-TB(LF)(SN)** | SMD | JST PH 2pin バッテリーコネクタ (2.0mmピッチ)。LCSC: C295747 |
+| J4 (JP2) | **ピンヘッダ 1×6** | 2.54mm スルーホール | UART + デバッグ用 (TXD/RXD/GND/BAT_IN/P3_4/RST_N) |
+| SW1 | **B3U-1100P-B** (Omron) | SMD | MFBボタン (電源ON/OFF + ペアリング)。LCSC: C4364316 |
 
 ### LED
 
 | Ref | 部品名 | パッケージ | 説明 |
 |-----|--------|-----------|------|
-| LED1 | LED 青 | 0603 | BT接続ステータス (BM83内蔵LEDドライバで駆動) |
-| LED2 | LED 赤 | 0603 | 充電ステータス (BM83内蔵LEDドライバで駆動) |
+| LED1 | **KT-0603B** LED 青 | 0603 | BT接続ステータス (BM83内蔵LEDドライバで駆動)。LCSC: C2288 |
+| LED2 | LED 赤 | 0603 | 充電ステータス (BM83内蔵LEDドライバで駆動)。LCSC: C2286 |
 
 ### 保護素子
 
 | Ref | 部品名 | パッケージ | 用途 |
 |-----|--------|-----------|------|
-| D1 | **PESD5V0S1BA** | SOD-323 | USB-C VBUS ESD/サージ保護 |
-| D2 | **PESD5V0S1BA** | SOD-323 | MFBボタン ESD保護 |
-| D3 | **PESD5V0S1BA** | SOD-323 | オーディオ Lch (Tip) ESD保護 **（DNP）** |
-| D4 | **PESD5V0S1BA** | SOD-323 | オーディオ Rch (Ring) ESD保護 **（DNP）** |
+| D1 | **PESD5V0S1BA** | SOD-323 | USB-C VBUS ESD/サージ保護。LCSC: C19224 |
+| D2 | **PESD5V0S1BA** | SOD-323 | MFBボタン ESD保護。LCSC: C19224 |
+| D3 | **PESD5V0S1BA** | SOD-323 | オーディオ Lch (Tip) ESD保護 **（DNP）**。LCSC: C19224 |
+| D4 | **PESD5V0S1BA** | SOD-323 | オーディオ Rch (Ring) ESD保護 **（DNP）**。LCSC: C19224 |
 
 ### 受動部品
 
 | Ref | 値 | パッケージ | 用途 |
 |-----|-----|-----------|------|
-| R1 | 5.1kΩ | 0603 | USB-C CC1プルダウン (UFP認識) |
-| R2 | 5.1kΩ | 0603 | USB-C CC2プルダウン (UFP認識) |
-| C1 | 0.1µF 16V | 0402 | BM83 デカップリング (BAT_IN近傍) |
-| C2 | 0.1µF 16V | 0402 | BM83 デカップリング (ADAP_IN近傍) |
-| C3 | 15pF 50V | 0402 | MFBデバウンスコンデンサ (リファレンス回路準拠) |
-| C4 | 10µF 25V | 0805 | ADAP_IN 入力バルクデカップリング |
-| C5 | 10µF 25V | 0805 | BAT_IN バルクデカップリング |
-| C6 | 100µF 10V | 電解 φ4×5.4mm | オーディオ Lch DCブロッキングコンデンサ |
-| C7 | 100µF 10V | 電解 φ4×5.4mm | オーディオ Rch DCブロッキングコンデンサ |
-| R3 | 0Ω | 0402 | オーディオ Lch 直列抵抗（必要時フェライトビード等に差し替え可） |
-| R4 | 0Ω | 0402 | オーディオ Rch 直列抵抗（必要時フェライトビード等に差し替え可） |
-| C8 | 0.1µF 16V | 0402 | RST_N ノイズフィルタ |
+| R1 | 5.1kΩ | 0603 | USB-C CC1プルダウン (UFP認識)。LCSC: C23186 |
+| R2 | 5.1kΩ | 0603 | USB-C CC2プルダウン (UFP認識)。LCSC: C23186 |
+| C1 | 0.1µF 16V | 0402 | BM83 デカップリング (BAT_IN近傍)。LCSC: C1525 |
+| C2 | 0.1µF 16V | 0402 | BM83 デカップリング (ADAP_IN近傍)。LCSC: C1525 |
+| C3 | 15pF 50V | 0402 | MFBデバウンスコンデンサ (リファレンス回路準拠)。LCSC: C1548 |
+| C4 | 10µF 25V | 0805 | ADAP_IN 入力バルクデカップリング。LCSC: C15850 |
+| C5 | 10µF 25V | 0805 | BAT_IN バルクデカップリング。LCSC: C15850 |
+| C6 | 100µF 10V | 電解 φ4×5.4mm | オーディオ Lch DCブロッキングコンデンサ（手はんだ） |
+| C7 | 100µF 10V | 電解 φ4×5.4mm | オーディオ Rch DCブロッキングコンデンサ（手はんだ） |
+| R3 | 0Ω | 0402 | オーディオ Lch 直列抵抗（必要時フェライトビード等に差し替え可）。LCSC: C17168 |
+| R4 | 0Ω | 0402 | オーディオ Rch 直列抵抗（必要時フェライトビード等に差し替え可）。LCSC: C17168 |
+| C8 | 0.1µF 16V | 0402 | RST_N ノイズフィルタ。LCSC: C1525 |
 
 **総部品数: 24点**（うちDNP 2点: D3, D4）
 
@@ -293,15 +293,28 @@ U1:RST_N (pin 43) ──┬──→ J4:pin6 (外部リセットアクセス用)
 
 ## 発注情報
 
-### PCB製造
-- **業者:** JLCPCB
+### PCB製造 + PCBA
+- **業者:** JLCPCB (PCBA実装サービス利用)
 - **枚数:** 5枚 (最小ロット)
-- **費用目安:** $2〜5 + 送料
+- **製造ファイル:**
+  - ガーバー: `20260306_v38_2026-03-17.zip`
+  - BOM: `BT_Rx_BOM.csv` (LCSC品番付き)
+  - CPL: `BT_Rx_CPL.csv` (部品座標・回転・レイヤー)
+
+### PCBA実装部品 (20点)
+SMD部品はJLCPCB PCBAサービスで実装。全部品LCSC在庫品。
+
+### 手はんだ部品 (4点)
+| Ref | 部品 | 理由 |
+|-----|------|------|
+| J2 | 35RASMT4BHNTRX (3.5mmジャック) | PCBAで非対応 |
+| JP2 | ピンヘッダ 1×6 | スルーホール |
+| C6 | 100µF電解コンデンサ | スルーホール |
+| C7 | 100µF電解コンデンサ | スルーホール |
 
 ### 部品調達先
-- **BM83:** Mouser / Digikey
-- **コネクタ・スイッチ:** LCSC / 秋月電子
-- **受動部品・保護素子:** LCSC (JLCPCBと連携)
+- **PCBA部品:** LCSC (JLCPCB連携、BOM CSVのLCSC品番で自動調達)
+- **手はんだ部品:** 秋月電子 / AliExpress
 - **LiPoバッテリー:** 保護回路内蔵品を選定すること
 
 ---
@@ -347,6 +360,15 @@ U1:RST_N (pin 43) ──┬──→ J4:pin6 (外部リセットアクセス用)
 | D3, D4 (オーディオESD) | なし | **PESD5V0S1BA ×2 (DNP)** | Tip/Ring-GND間にフットプリント確保。イヤホン抜き差し時のESD保護 |
 | 総部品数 | 22点 | **24点** (うちDNP 2点) | D3, D4追加 |
 
+### v4 → v5
+| 項目 | v4 | v5 | 理由 |
+|------|-----|-----|------|
+| J1 (USB-C) | TYPE-C-31-M-12 (16pin) | **12401610E4#2A** (Amphenol, 24pin) | PCBフットプリント(24pin)に合致する在庫品に変更 |
+| SW1 (ボタン) | B3U-1100P | **B3U-1100P-B** | 在庫切れ対応。同じOmron B3Uシリーズ |
+| LED1 (青LED) | 汎用 | **KT-0603B** | 在庫切れ対応。0603青色LED |
+| 全部品にLCSC品番追加 | なし | 全PCBA部品にLCSC品番記載 | JLCPCB PCBA発注用 |
+| 発注情報 | PCBのみ | **PCBA実装サービス利用** | BOM/CPL/ガーバー出力済み |
+
 ---
 
 ## 参考資料
@@ -354,4 +376,14 @@ U1:RST_N (pin 43) ──┬──→ J4:pin6 (外部リセットアクセス用)
 - `docs/datasheets/BM83_datasheet.pdf` — BM83 データシート (DS70005402B)
 - `docs/datasheets/BM83_reference_circuit.pdf` — BM83 Embedded Mode リファレンス回路
 - `docs/datasheets/BM83_EVB_user_guide.pdf` — BM83 EVB ユーザーガイド
+- `docs/datasheets/PESD5V0S1BA_datasheet.pdf` — ESD保護ダイオード データシート
+- `docs/datasheets/12401610E4_USB-C_datasheet.pdf` — Amphenol USB-C コネクタ データシート
+- `docs/datasheets/35RASMT4BHNTRX_datasheet.pdf` — Switchcraft 3.5mmオーディオジャック データシート
+- `docs/datasheets/B3U_tactile_switch_datasheet.pdf` — Omron B3U タクトスイッチ データシート
+- `docs/datasheets/JST_PH_series_datasheet.pdf` — JST PH コネクタ データシート
 - `docs/fusion_electronics/` — Fusion Electronics オフラインドキュメント (582ページ)
+
+### 製造ファイル
+- `BT_Rx_BOM.csv` — JLCPCB PCBA用 BOM (LCSC品番付き)
+- `BT_Rx_CPL.csv` — JLCPCB PCBA用 部品配置リスト
+- `20260306_v38_2026-03-17.zip` — ガーバーファイル
