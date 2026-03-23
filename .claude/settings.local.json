@@ -23,7 +23,20 @@
       "WebFetch(domain:componentsearchengine.com)",
       "WebFetch(domain:www.radiolocman.com)",
       "WebFetch(domain:download.mikroe.com)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "WebFetch(domain:www.digikey.co.uk)",
+      "WebFetch(domain:www.scribd.com)",
+      "WebFetch(domain:kovo-blog.blogspot.com)",
+      "WebFetch(domain:www.manualslib.com)",
+      "WebFetch(domain:manuals.plus)",
+      "WebFetch(domain:device.report)",
+      "WebFetch(domain:manualzz.com)",
+      "WebFetch(domain:akizukidenshi.com)",
+      "WebFetch(domain:www.mikroe.com)",
+      "WebFetch(domain:docplayer.net)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.studocu.com)",
+      "WebFetch(domain:www.alldatasheet.com)"
     ]
   }
 }
