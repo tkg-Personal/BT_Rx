@@ -1,4 +1,4 @@
-# BT Audio Rx — Bluetooth オーディオレシーバー PCB 仕様書 v5
+# BT Audio Rx — Bluetooth オーディオレシーバー PCB 仕様書 v6
 
 ## 概要
 
@@ -32,9 +32,8 @@ USB-C (5V) ─── R1,R2(CC) ──→ BM83:ADAP_IN (pin 22)
 
                               BM83:SYS_PWR (pin 24)
                               ├── LED1 (青) → LED1 pin (pin 32)
-                              └── LED2 (赤) → LED2 pin (pin 34)
-
-                              BM83:MFB (pin 26) ← SW1 (タクトスイッチ) → GND
+                              ├── LED2 (赤) → LED2 pin (pin 34)
+                              └── SW1 (タクトスイッチ) → BM83:MFB (pin 26)
 ```
 
 ---
@@ -144,7 +143,7 @@ J3:pin2 (-) ──→ GND
 ```
 U1:BAT_IN  (pin 23) ← LiPo+ / C1, C5
 U1:ADAP_IN (pin 22) ← USB VBUS / C2, C4
-U1:SYS_PWR (pin 24) → LED1, LED2 のアノード側のみ接続。他は接続禁止
+U1:SYS_PWR (pin 24) → LED1, LED2 のアノード + SW1 (MFBボタン) 接続
 U1:VDD_IO  (pin 25) → 接続禁止 (内部使用)
 U1:GND     (pin 16, 50) → GND
 ```
@@ -170,13 +169,14 @@ D4 (PESD5V0S1BA, DNP): J2:Ring ──→ GND   ※オーディオ Rch ESD保護
 ### 5. MFBボタン (SW1)
 
 ```
-U1:PWR/MFB (pin 26) ──┬──→ SW1 ──→ GND
-                       │
-                  C3 (15pF) → GND
-                       │
-                  D2 (PESD5V0S1BA) → GND   ※ESD保護
+U1:SYS_PWR (pin 24) ──→ SW1 ──→ U1:PWR/MFB (pin 26)
+                                       │
+                                  C3 (15pF) → GND
+                                       │
+                                  D2 (PESD5V0S1BA) → GND   ※ESD保護
 ```
 
+- ボタン押下でMFBがSYS_PWR電圧 (HIGH) になる（BM83リファレンス回路準拠）
 - MFB長押し: 電源ON/OFF
 - MFB短押し: ペアリング開始 (Config Toolで動作変更可能)
 
@@ -271,6 +271,7 @@ U1:RST_N (pin 43) ──┬──→ J4:pin6 (外部リセットアクセス用)
 - **J4 (UARTヘッダ):** 基板端（テスト時のみ使用）
 - **C6, C7 (DCブロッキング):** J2とU1の間、オーディオ出力経路上に配置
 - **D1 (USB ESD):** J1直近に配置
+- **D3, D4 (オーディオESD):** J2直近に配置
 - **デカップリングコンデンサ:** 対応ピンの直近に配置
 
 ### 配線ルール
@@ -329,7 +330,7 @@ SMD部品はJLCPCB PCBAサービスで実装。全部品LCSC在庫品。
 
 1. **LiPoバッテリーは保護回路内蔵品を使用すること** — BM83は過放電保護のみ（電圧監視）で、過電流/短絡保護は限定的。セル内蔵保護回路で対応
 2. **P3_4 (pin 31) を通常時LOWにしないこと** — Test Modeに入ってしまう。J4:pin5に引き出し済みだが、通常運用時はフローティング必須
-3. **SYS_PWR (pin 24) にLED以外を接続しないこと** — 内部電源、外部負荷接続禁止
+3. **SYS_PWR (pin 24) に重い外部負荷を接続しないこと** — LED・SW1 (MFBボタン) 以外の接続禁止（リファレンス回路準拠）
 4. **VDD_IO (pin 25) は接続禁止** — 内部LDO出力
 5. **Config Toolでの設定が必要** — LEDパターン、充電電流、オーディオモード (Single-ended)、オーディオゲイン等はUART経由で設定
 6. **アンテナパターンを変更しないこと** — 技適認証維持のため
@@ -368,6 +369,14 @@ SMD部品はJLCPCB PCBAサービスで実装。全部品LCSC在庫品。
 | LED1 (青LED) | 汎用 | **KT-0603B** | 在庫切れ対応。0603青色LED |
 | 全部品にLCSC品番追加 | なし | 全PCBA部品にLCSC品番記載 | JLCPCB PCBA発注用 |
 | 発注情報 | PCBのみ | **PCBA実装サービス利用** | BOM/CPL/ガーバー出力済み |
+
+### v5 → v6
+| 項目 | v5 | v6 | 理由 |
+|------|-----|-----|------|
+| SW1 (MFBボタン) 接続先 | MFB → SW1 → **GND** | SYS_PWR → SW1 → **MFB** | BM83リファレンス回路に準拠。ボタン押下でMFBをHIGHにする設計 |
+| SYS_PWR 注意書き | LED以外接続禁止 | **LED + SW1 以外接続禁止** | リファレンス回路でSW1がSYS_PWRに接続されているため |
+| D1 配置 | — | **J1 (USB-C) 直近** | PCBレイアウト修正 |
+| D3, D4 配置 | — | **J2 (3.5mmジャック) 直近** | PCBレイアウト修正 |
 
 ---
 

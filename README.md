@@ -28,7 +28,7 @@ Bluetoothで音楽を受信し、3.5mmステレオジャックから出力する
 ```
 BT_Rx/
 ├── README.md                          ← 本ファイル
-├── BT_Rx_仕様書.md                    ← 回路仕様・BOM・PCB設計方針 (v5)
+├── BT_Rx_仕様書.md                    ← 回路仕様・BOM・PCB設計方針 (v6)
 ├── 実装方法.md                        ← 実装〜テスト手順 (PCBA対応)
 ├── 日記.md                            ← 設計日記・作業ログ
 ├── BT_Rx_BOM.csv                      ← JLCPCB PCBA用 BOM (LCSC品番付き)
