@@ -36,7 +36,11 @@
       "WebFetch(domain:docplayer.net)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.studocu.com)",
-      "WebFetch(domain:www.alldatasheet.com)"
+      "WebFetch(domain:www.alldatasheet.com)",
+      "WebFetch(domain:www.farnell.com)",
+      "Bash(where qpdf:*)",
+      "Bash(where pdftk:*)",
+      "Bash(where gs:*)"
     ]
   }
 }
